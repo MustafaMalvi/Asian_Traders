@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asian Traders | Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Asian Traders</h1>
+    <p>Our Hardware Product Showcase</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="section">
+    <center><h2>Products We Offer</h2></center>
+    <div class="product-grid">
+
+        <div class="product-card">
+            <div class="image-slider">
+                <button class="nav prev" onclick="slide(this,-1)">❮</button>
+                <div class="image-track" onscroll="updateDots(this)">
+                    <img src="images/kitchen/kb1.jpg">
+                    <img src="images/kitchen/kb2.jpg">
+                    <img src="images/kitchen/kb3.jpg">
+                </div>
+                <button class="nav next" onclick="slide(this,1)">❯</button>
+                <div class="dots"></div>
+            </div>
+            <h3>Kitchen Baskets</h3>
+            <p>Stainless steel and durable kitchen basket solutions.</p>
+        </div>
+
+
+        <div class="product-card">
+            <h3>Cupboard Handles</h3>
+            <p>Modern, traditional and designer handles for all cupboards.</p>
+        </div>
+
+        <div class="product-card">
+            <h3>Main Door Locks</h3>
+            <p>Security locks including deadlocks, mortise locks, and more.</p>
+        </div>
+
+        <div class="product-card">
+            <h3>Door Closers</h3>
+            <p>Heavy-duty and smooth door closer mechanisms.</p>
+        </div>
+
+        <div class="product-card">
+            <h3>Aldrops</h3>
+            <p>Strong and durable aldrops for main and back doors.</p>
+        </div>
+
+        <div class="product-card">
+            <h3>Curtain Pipes</h3>
+            <p>Curtain rods and pipes in various sizes and finishes.</p>
+        </div>
+
+        <div class="product-card">
+            <h3>Adhesives</h3>
+            <p>Brand adhesives including Fevicol, Euro and more.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Asian Traders, Bhavnagar. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
