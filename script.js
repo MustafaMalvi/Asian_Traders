@@ -1,1 +1,0 @@
-console.log("Asian Traders Loaded");
