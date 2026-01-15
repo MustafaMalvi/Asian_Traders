@@ -1,7 +1,7 @@
 body {
   margin:0;
   font-family: Arial;
-  background:#f5f7fb;
+  background: #f5f7fb;
 }
 
 header {
@@ -141,7 +141,7 @@ header {
   padding:20px;
   border-radius:15px;
   margin-bottom:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,.05);
+  box-shadow:0 5px 15px rgba(0,0,0,.20);
 }
 
 .card, .about {
@@ -194,7 +194,7 @@ footer {
   background:white;
   padding:25px;
   border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.20);
 }
 
 .contact-box input,
@@ -227,7 +227,7 @@ footer {
 .footer-container{
   display:grid;
   grid-template-columns:1fr;
-  gap:30px;
+  gap:15px;
 }
 
 .footer h4{
@@ -237,11 +237,6 @@ footer {
 .footer ul{
   list-style:none;
   padding:0;
-}
-
-.footer ul li{
-  margin-bottom:8px;
-  color:#ccc;
 }
 
 .since{
@@ -265,4 +260,37 @@ footer {
   .footer-container{
     grid-template-columns:repeat(4,1fr);
   }
+}
+
+.image-track {
+    display: flex;
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    /* scrollbar-width: none; */
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.dots span {
+    width: 8px;
+    height: 8px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dots span.active {
+    background: #333;
+}
+
+.footer-link a{
+  color : white;
+  margin-right: 20px;
+  text-decoration: none;
 }

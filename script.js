@@ -36,3 +36,48 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 
   window.open(url, "_blank");
 });
+
+function updateDots(track) {
+    const slider = track.parentElement;
+    const dots = slider.querySelectorAll(".dots span");
+    const imgWidth = track.querySelector("img").clientWidth;
+    const index = Math.round(track.scrollLeft / imgWidth);
+
+    dots.forEach(d => d.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
+}
+
+window.addEventListener("load", () => {
+
+document.querySelectorAll(".slider").forEach(slider => {
+    const track = slider.querySelector(".image-track");
+    const dotsContainer = slider.querySelector(".dots");
+    const images = track.querySelectorAll("img");
+
+    dotsContainer.innerHTML = "";
+
+    images.forEach((img, i) => {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+
+        dot.addEventListener("click", () => {
+            track.scrollTo({
+                left: img.clientWidth * i,
+                behavior: "smooth"
+            });
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+
+    track.addEventListener("scroll", () => {
+        const imgWidth = track.scrollWidth / images.length;
+        const index = Math.round(track.scrollLeft / imgWidth);
+
+        const dots = dotsContainer.querySelectorAll("span");
+        dots.forEach(d => d.classList.remove("active"));
+        if (dots[index]) dots[index].classList.add("active");
+    });
+});
+
+});

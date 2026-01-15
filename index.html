@@ -17,7 +17,7 @@
 </header>
 <div class="dropdown-menu" id="dropdownMenu">
   <a href="#home">Home</a>
-  <a href="#products">Products</a>
+  <a href="products.html">Products</a>
   <a href="#about">About Us</a>
   <a href="#contact">Contact</a>
 </div>
@@ -27,8 +27,8 @@
   <p>Your trusted hardware supplier in Bhavnagar for over 30 years.</p>
 
   <div class="buttons">
-    <button class="primary">View Products</button>
-    <button class="outline">Contact Us</button>
+    <a href="#products"><button class="primary">View Products</button></a>
+    <a href="#contact"><button class="outline">Contact Us</button></a>
   </div>
 </section>
 
@@ -50,17 +50,35 @@
 <section class="product" id="products">
   <center><h2>Our Products</h2>
   <p>Explore our wide range of quality hardware products and fittings</p></center>
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1602524207891-c8ef6c1b67a6">
-    <h4>Kitchen Baskets</h4>
-    <p>Modular kitchen organizers</p>
+  <div class="product slider">
+    <div class="image-track">
+      <img src="images/kitchen/kb1.jpg">
+      <img src="images/kitchen/kb2.jpg">
+      <img src="images/kitchen/kb3.jpg">
+      <img src="images/kitchen/kb4.jpg">
+    </div>
+    <div class="dots"></div>
+    <h3>Kitchen Baskets</h3>
   </div>
 
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1588854337221-4d0a64f88b11">
-    <h4>Cupboard Handles</h4>
-    <p>Premium door handles</p>
+  <div class="product slider">
+    <div class="image-track">
+      <img src="images/handlelock/hl (1).jpg">
+      <img src="images/handlelock/hl (2).jpg">
+      <img src="images/handlelock/hl (3).jpg">
+      <img src="images/handlelock/hl (4).jpg">
+      <img src="images/handlelock/hl (5).jpg">
+      <img src="images/handlelock/hl (6).jpg">
+      <img src="images/handlelock/hl (7).jpg">
+    </div>
+    <div class="dots"></div>
+    <h3>Handle Lock</h3>
   </div>
+  <div class="buttons" style="text-align:center;">
+  <a href="products.html">
+    <button class="primary">View All Products</button>
+  </a>
+</div>
 </section>
 
 <section class="contact-section" id="contact">
@@ -103,11 +121,11 @@
 
     <div>
       <h4>Quick Links</h4>
-      <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>About Us</li>
-        <li>Contact</li>
+      <ul class=footer-link>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#contact">Contact</a>
       </ul>
     </div>
 
