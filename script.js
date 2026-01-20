@@ -87,25 +87,33 @@ const productCards = document.querySelectorAll(".product.slider");
 const observer = new IntersectionObserver(
   (entries) => {
 
+    let fullyVisibleCard = null;
+
     entries.forEach(entry => {
+      const rect = entry.boundingClientRect;
+      const viewportHeight = window.innerHeight;
 
-      if (entry.intersectionRatio === 1) {
-        // Remove from all others first
-        productCards.forEach(card => card.classList.remove("in-view"));
+      // Check strict full visibility (inside viewport)
+      const isFullyVisible =
+        rect.top >= 0 &&
+        rect.bottom <= viewportHeight;
 
-        // Enhance only this fully-visible block
-        entry.target.classList.add("in-view");
-      } 
-      else {
-        // If any part is out of view, remove enhancement
-        entry.target.classList.remove("in-view");
+      if (isFullyVisible) {
+        fullyVisibleCard = entry.target;
       }
-
     });
+
+    // Remove from all first
+    productCards.forEach(card => card.classList.remove("in-view"));
+
+    // Apply only to the one fully visible block (if any)
+    if (fullyVisibleCard) {
+      fullyVisibleCard.classList.add("in-view");
+    }
 
   },
   {
-    threshold: 1.0   // <-- 100% visibility required
+    threshold: 0.99,   // small tolerance to avoid flicker
   }
 );
 
