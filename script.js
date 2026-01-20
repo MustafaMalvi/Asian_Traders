@@ -15,7 +15,9 @@ document.querySelectorAll(".dropdown-menu a").forEach(link => {
     dropdownMenu.style.display = "none";
   });
 });
-document.getElementById("contactForm").addEventListener("submit", function(e){
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+contactForm.addEventListener("submit", function(e){
   e.preventDefault();
 
   const name = this.querySelector("input[placeholder='Enter your name']").value;
@@ -35,7 +37,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   const url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
 
   window.open(url, "_blank");
-});
+})};
 
 function updateDots(track) {
     const slider = track.parentElement;
@@ -79,5 +81,33 @@ document.querySelectorAll(".slider").forEach(slider => {
         if (dots[index]) dots[index].classList.add("active");
     });
 });
-
 });
+const productCards = document.querySelectorAll(".product.slider");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.intersectionRatio === 1) {
+        // Remove from all others first
+        productCards.forEach(card => card.classList.remove("in-view"));
+
+        // Enhance only this fully-visible block
+        entry.target.classList.add("in-view");
+      } 
+      else {
+        // If any part is out of view, remove enhancement
+        entry.target.classList.remove("in-view");
+      }
+
+    });
+
+  },
+  {
+    threshold: 1.0   // <-- 100% visibility required
+  }
+);
+
+// Observe all product blocks
+productCards.forEach(card => observer.observe(card));

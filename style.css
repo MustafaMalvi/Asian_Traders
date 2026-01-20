@@ -294,3 +294,13 @@ footer {
   margin-right: 20px;
   text-decoration: none;
 }
+
+.product.slider {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Enhanced state ONLY when fully visible */
+.product.slider.in-view {
+  transform: scale(1.04);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
