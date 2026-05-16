@@ -1,99 +1,183 @@
-console.log("Asian Traders Loaded");
+// ─── MENU TOGGLE ───
 const menuBtn = document.getElementById("menuBtn");
-const dropdownMenu = document.getElementById("dropdownMenu");
+const navOverlay = document.getElementById("navOverlay");
+
 menuBtn.addEventListener("click", () => {
-  if(dropdownMenu.style.display === "flex"){
-    dropdownMenu.style.display = "none";
-  } else {
-    dropdownMenu.style.display = "flex";
-  }
+  menuBtn.classList.toggle("open");
+  navOverlay.classList.toggle("open");
+  document.body.style.overflow = navOverlay.classList.contains("open") ? "hidden" : "";
 });
-document.querySelectorAll(".dropdown-menu a").forEach(link => {
+
+navOverlay.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
-    dropdownMenu.style.display = "none";
+    menuBtn.classList.remove("open");
+    navOverlay.classList.remove("open");
+    document.body.style.overflow = "";
   });
 });
-const contactForm = document.getElementById("contactForm");
-if (contactForm) {
-contactForm.addEventListener("submit", function(e){
-  e.preventDefault();
-  const name = this.querySelector("input[placeholder='Enter your name']").value;
-  const email = this.querySelector("input[placeholder='your@email.com']").value;
-  const phone = this.querySelector("input[placeholder='+91 XXXXX XXXXX']").value;
-  const message = this.querySelector("textarea").value;
-  const whatsappNumber = "917984777292"; // <-- your phone number without + or spaces
-  const text = 
-    "New Enquiry from Asian Traders Website\n\n" +
-    "Name: " + name + "\n" +
-    "Email: " + email + "\n" +
-    "Phone: " + phone + "\n\n" +
-    "Message:\n" + message;
-  const url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
-  window.open(url, "_blank");
-})};
-function updateDots(track) {
-    const slider = track.parentElement;
-    const dots = slider.querySelectorAll(".dots span");
-    const imgWidth = track.querySelector("img").clientWidth;
-    const index = Math.round(track.scrollLeft / imgWidth);
-    dots.forEach(d => d.classList.remove("active"));
-    if (dots[index]) dots[index].classList.add("active");
+
+// ─── HEADER SCROLL SHADOW ───
+const header = document.getElementById("site-header");
+if (header) {
+  window.addEventListener("scroll", () => {
+    header.style.background = window.scrollY > 40
+      ? "rgba(10,10,10,0.97)"
+      : "rgba(10,10,10,0.88)";
+  }, { passive: true });
 }
+
+// ─── SCROLL REVEAL ───
+const revealEls = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ─── IMAGE SLIDERS ───
 window.addEventListener("load", () => {
-document.querySelectorAll(".slider").forEach(slider => {
-    const track = slider.querySelector(".image-track");
-    const dotsContainer = slider.querySelector(".dots");
+  document.querySelectorAll(".product-card, .product-slider").forEach(card => {
+    const track = card.querySelector(".track");
+    const dotsContainer = card.querySelector(".slider-dots");
+    if (!track || !dotsContainer) return;
+
     const images = track.querySelectorAll("img");
     dotsContainer.innerHTML = "";
+
     images.forEach((img, i) => {
-        const dot = document.createElement("span");
-        if (i === 0) dot.classList.add("active");
-        dot.addEventListener("click", () => {
-            track.scrollTo({
-                left: img.clientWidth * i,
-                behavior: "smooth"
-            });
-        });
-        dotsContainer.appendChild(dot);
+      const dot = document.createElement("span");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => {
+        track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
+      });
+      dotsContainer.appendChild(dot);
     });
+
     track.addEventListener("scroll", () => {
-        const imgWidth = track.scrollWidth / images.length;
-        const index = Math.round(track.scrollLeft / imgWidth);
-
-        const dots = dotsContainer.querySelectorAll("span");
-        dots.forEach(d => d.classList.remove("active"));
-        if (dots[index]) dots[index].classList.add("active");
-    });
+      const index = Math.round(track.scrollLeft / track.clientWidth);
+      dotsContainer.querySelectorAll("span").forEach((d, i) => {
+        d.classList.toggle("active", i === index);
+      });
+    }, { passive: true });
+  });
 });
-});
-const productCards = document.querySelectorAll(".product.slider");
-const observer = new IntersectionObserver(
-  (entries) => {
-    let fullyVisibleCard = null;
-    entries.forEach(entry => {
-      const rect = entry.boundingClientRect;
-      const viewportHeight = window.innerHeight;
 
-      // Check strict full visibility (inside viewport)
-      const isFullyVisible =
-        rect.top >= 0 &&
-        rect.bottom <= viewportHeight;
+// ─── BUSINESS HOURS CHECK ───
+function updateHoursBadge() {
+  const now = new Date();
+  const day = now.getDay(); // 0=Sun
+  const hour = now.getHours();
+  const min = now.getMinutes();
+  const timeVal = hour * 60 + min;
+  const openTime = 10 * 60;
+  const closeTime = 21 * 60;
 
-      if (isFullyVisible) {
-        fullyVisibleCard = entry.target;
-      }
-    });
-    // Remove from all first
-    productCards.forEach(card => card.classList.remove("in-view"));
-    // Apply only to the one fully visible block (if any)
-    if (fullyVisibleCard) {
-      fullyVisibleCard.classList.add("in-view");
+  const isOpen = day !== 0 && timeVal >= openTime && timeVal < closeTime;
+
+  document.querySelectorAll(".hours-badge").forEach(badge => {
+    const dot = badge.querySelector(".hours-dot");
+    const label = badge.querySelector("span:last-child") || badge;
+    if (dot) dot.style.background = isOpen ? "#4ade80" : "#f87171";
+    badge.innerHTML = `<div class="hours-dot" style="background:${isOpen ? "#4ade80" : "#f87171"};width:7px;height:7px;border-radius:50%;"></div> ${isOpen ? "Open Now" : (day === 0 ? "Closed Today (Sunday)" : "Currently Closed")}`;
+  });
+}
+updateHoursBadge();
+
+// ─── PREFILL PRODUCT SELECT (index page) ───
+function prefillProduct(name) {
+  setTimeout(() => {
+    const sel = document.getElementById("bProduct");
+    if (!sel) return;
+    for (let opt of sel.options) {
+      if (opt.value === name) { sel.value = name; break; }
     }
-  },
-  {
-    threshold: 0.99,   // small tolerance to avoid flicker
-  }
-);
+  }, 300);
+}
 
-// Observe all product blocks
-productCards.forEach(card => observer.observe(card));
+// Pre-fill from sessionStorage (coming from products page)
+window.addEventListener("DOMContentLoaded", () => {
+  const stored = sessionStorage.getItem("bookProduct");
+  if (stored) {
+    const sel = document.getElementById("bProduct");
+    if (sel) {
+      for (let opt of sel.options) {
+        if (opt.value === stored) { sel.value = stored; break; }
+      }
+    }
+    sessionStorage.removeItem("bookProduct");
+  }
+});
+
+// ─── TOAST ───
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  const toastMsg = document.getElementById("toastMsg");
+  if (!toast) return;
+  if (toastMsg) toastMsg.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 4000);
+}
+
+// ─── WHATSAPP NUMBER ───
+const WA_NUMBER = "917984777292";
+
+function sendToWhatsApp(text) {
+  const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
+}
+
+// ─── BOOKING FORM ───
+const bookingForm = document.getElementById("bookingForm");
+if (bookingForm) {
+  bookingForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name    = document.getElementById("bName").value.trim();
+    const phone   = document.getElementById("bPhone").value.trim();
+    const email   = document.getElementById("bEmail").value.trim();
+    const product = document.getElementById("bProduct").value;
+    const message = document.getElementById("bMessage").value.trim();
+
+    const text =
+      "📦 *New Order Booking — Asian Traders Website*\n\n" +
+      "👤 *Name:* " + name + "\n" +
+      "📞 *Phone:* " + phone + "\n" +
+      (email ? "✉️ *Email:* " + email + "\n" : "") +
+      "🏷️ *Product:* " + product + "\n\n" +
+      "📝 *Details / Quantity:*\n" + message + "\n\n" +
+      "_Sent via asiantraders.shop_";
+
+    sendToWhatsApp(text);
+    showToast("Booking sent! We'll confirm on WhatsApp.");
+    bookingForm.reset();
+  });
+}
+
+// ─── CONTACT / ENQUIRY FORM ───
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name    = document.getElementById("cName").value.trim();
+    const email   = document.getElementById("cEmail").value.trim();
+    const phone   = document.getElementById("cPhone").value.trim();
+    const message = document.getElementById("cMessage").value.trim();
+
+    const text =
+      "💬 *New Enquiry — Asian Traders Website*\n\n" +
+      "👤 *Name:* " + name + "\n" +
+      "📞 *Phone:* " + phone + "\n" +
+      (email ? "✉️ *Email:* " + email + "\n" : "") +
+      "\n📝 *Message:*\n" + message + "\n\n" +
+      "_Sent via asiantraders.shop_";
+
+    sendToWhatsApp(text);
+    showToast("Enquiry sent via WhatsApp!");
+    contactForm.reset();
+  });
+}
