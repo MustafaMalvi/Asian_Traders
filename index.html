@@ -2,182 +2,372 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Asian Traders</title>
+<title>Asian Traders — Hardware Since 1990</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Asian Traders is a trusted hardware store in Bhavnagar since 1990. We supply plumbing fittings, handles, bathroom accessories, kitchen baskets and door hardware.">
+<meta name="description" content="Asian Traders is a trusted hardware store in Bhavnagar since 1990. Handles, kitchen baskets, bathroom accessories, door hardware and more.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    <h2>Asian Traders</h2>
-    <span>Since 1990</span>
-  </div>
-  <div class="menu" id="menuBtn">☰</div>
-</header>
-<div class="dropdown-menu" id="dropdownMenu">
-  <a href="#home">Home</a>
-  <a href="products.html">Products</a>
-  <a href="#about">About Us</a>
-  <a href="#contact">Contact</a>
-</div>
-<section class="hero" id="home">
-  <span class="tag">Trusted Hardware Solutions Since 1990</span>
-  <h1>Welcome to<br> <span>Asian Traders</span></h1>
-  <p>Your trusted hardware supplier in Bhavnagar for over 30 years.</p>
-
-  <div class="buttons">
-    <a href="#products"><button class="primary">View Products</button></a>
-    <a href="#contact"><button class="outline">Contact Us</button></a>
-  </div>
-</section>
-
-<section class="cards">
-  <div class="card">
-    <h3>Est. 1990</h3>
-    <p>Over 30 years of trusted service</p>
-  </div>
-  <div class="card">
-    <h3>Quality First</h3>
-    <p>Premium hardware products</p>
-  </div>
-  <div class="card">
-    <h3>Expert Service</h3>
-    <p>Knowledgeable staff ready to help</p>
-  </div>
-</section>
-
-<section class="product" id="products">
-  <center><h2>Our Products</h2>
-  <p>Explore our wide range of quality hardware products and fittings</p></center>
-  <div class="product slider">
-    <div class="image-track">
-      <img src="images/kitchen/kb (1).jpg">
-      <img src="images/kitchen/kb (2).jpg">
-      <img src="images/kitchen/kb (3).jpg">
-      <img src="images/kitchen/kb (4).jpg">
-    </div>
-    <div class="dots"></div>
-    <h3>Kitchen Baskets</h3>
-  </div>
-
-  <div class="product slider">
-    <div class="image-track">
-      <img src="images/handlelock/hl (1).jpg">
-      <img src="images/handlelock/hl (2).jpg">
-      <img src="images/handlelock/hl (3).jpg">
-      <img src="images/handlelock/hl (4).jpg">
-      <img src="images/handlelock/hl (5).jpg">
-      <img src="images/handlelock/hl (6).jpg">
-      <img src="images/handlelock/hl (7).jpg">
-    </div>
-    <div class="dots"></div>
-    <h3>Handle Lock</h3>
-  </div>
-  <div class="product slider">
-    <div class="image-track">
-      <img src="images/fhandle/fh (1).jpg">
-      <img src="images/fhandle/fh (2).jpg">
-      <img src="images/fhandle/fh (3).jpg">
-      <img src="images/fhandle/fh (4).jpg">
-      <img src="images/fhandle/fh (5).jpg">
-      <img src="images/fhandle/fh (6).jpg">
-      <img src="images/fhandle/fh (7).jpg">
-      <img src="images/fhandle/fh (8).jpg">
-    </div>
-    <div class="dots"></div>
-    <h3>Furniture Handle</h3>
-  </div>
-  <div class="product slider">
-    <div class="image-track">
-      <img src="images/bathroom/bathroom (1).jpg">
-      <img src="images/bathroom/bathroom (2).jpg">
-      <img src="images/bathroom/bathroom (3).jpg">
-      <img src="images/bathroom/bathroom (4).jpg">
-      <img src="images/bathroom/bathroom (5).jpg">
-      <img src="images/bathroom/bathroom (6).jpg">
-      <img src="images/bathroom/bathroom (7).jpg">
-    </div>
-    <div class="dots"></div>
-    <h3>Bathroom Accessories</h3>
-  </div>
-  <div class="buttons" style="text-align:center;">
-  <a href="products.html">
-    <button class="primary">View All Products</button>
+<!-- HEADER -->
+<header id="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-name">Asian Traders</span>
+    <span class="logo-tag">Est. 1990 · Bhavnagar</span>
   </a>
-</div>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- NAV OVERLAY -->
+<nav class="nav-overlay" id="navOverlay">
+  <a href="index.html#home" class="nav-link">Home</a>
+  <a href="products.html" class="nav-link">Products</a>
+  <a href="index.html#order" class="nav-link">Book Order</a>
+  <a href="index.html#about" class="nav-link">About</a>
+  <a href="index.html#contact" class="nav-link">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-eyebrow">Trusted Hardware · Bhavnagar</div>
+
+  <h1>Quality <em>Hardware</em><br>Since 1990</h1>
+  <p class="hero-sub">Supplying premium handles, fittings, kitchen accessories and door hardware to homes and businesses across Gujarat.</p>
+
+  <div class="hero-actions">
+    <a href="products.html" class="btn-primary">Explore Products</a>
+    <a href="#order" class="btn-outline">Book an Order</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Years</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Products</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10k+</div>
+      <div class="stat-label">Customers</div>
+    </div>
+  </div>
 </section>
 
-<section class="contact-section" id="contact">
-  <h2>Get In Touch</h2>
-  <p>Have a question or need assistance? Fill out the form below and we'll get back to you promptly.</p>
+<!-- FEATURES -->
+<section class="section features" id="features">
+  <p class="section-label reveal">Why Choose Us</p>
+  <h2 class="section-title reveal">Hardware you can <em>trust</em></h2>
+  <p class="section-sub reveal">Three decades of sourcing and supplying the finest hardware products to Bhavnagar and beyond.</p>
 
-  <div class="contact-box">
-    <form id="contactForm">
-      <label>Full Name *</label>
-      <input type="text" placeholder="Enter your name" required>
+  <div class="features-grid reveal">
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <div class="feature-name">Premium Quality</div>
+      <div class="feature-desc">Every product hand-selected for durability, finish and value.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤝</div>
+      <div class="feature-name">Expert Advice</div>
+      <div class="feature-desc">Our team knows hardware — we'll help you find the right fit.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📦</div>
+      <div class="feature-name">Easy Pickup</div>
+      <div class="feature-desc">Book online, walk in at your convenience. No wait, no hassle.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📍</div>
+      <div class="feature-name">Central Location</div>
+      <div class="feature-desc">Situated at Vora Bazar — the heart of Bhavnagar's market.</div>
+    </div>
+  </div>
+</section>
 
-      <label>Email Address</label>
-      <input type="email" placeholder="your@email.com">
+<!-- PRODUCTS PREVIEW -->
+<section class="section products-section" id="products">
+  <p class="section-label reveal">Our Products</p>
+  <h2 class="section-title reveal">Crafted for every <em>space</em></h2>
+  <p class="section-sub reveal">From kitchen baskets to door handles — a complete range of hardware essentials.</p>
 
-      <label>Phone Number *</label>
-      <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+  <div class="products-grid reveal" id="productsGrid">
 
-      <label>Your Message *</label>
-      <textarea placeholder="Tell us about your hardware requirements..." required></textarea>
+    <div class="product-card" data-product="Kitchen Baskets">
+      <div class="product-slider">
+        <div class="track" id="track-kb">
+          <img src="images/kitchen/kb (1).jpg" alt="Kitchen Basket">
+          <img src="images/kitchen/kb (2).jpg" alt="Kitchen Basket">
+          <img src="images/kitchen/kb (3).jpg" alt="Kitchen Basket">
+          <img src="images/kitchen/kb (4).jpg" alt="Kitchen Basket">
+        </div>
+        <div class="slider-dots" id="dots-kb"></div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Kitchen Baskets</div>
+          <div class="product-cat">Storage &amp; Organisation</div>
+        </div>
+        <a href="#order" class="btn-book-sm" onclick="prefillProduct('Kitchen Baskets')">Book Order</a>
+      </div>
+    </div>
 
-      <button type="submit">Send Enquiry</button>
+    <div class="product-card" data-product="Handle Lock">
+      <div class="product-slider">
+        <div class="track" id="track-hl">
+          <img src="images/handlelock/hl (1).jpg" alt="Handle Lock">
+          <img src="images/handlelock/hl (2).jpg" alt="Handle Lock">
+          <img src="images/handlelock/hl (3).jpg" alt="Handle Lock">
+          <img src="images/handlelock/hl (4).jpg" alt="Handle Lock">
+        </div>
+        <div class="slider-dots" id="dots-hl"></div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Handle Lock</div>
+          <div class="product-cat">Security &amp; Locks</div>
+        </div>
+        <a href="#order" class="btn-book-sm" onclick="prefillProduct('Handle Lock')">Book Order</a>
+      </div>
+    </div>
+
+    <div class="product-card" data-product="Furniture Handle">
+      <div class="product-slider">
+        <div class="track" id="track-fh">
+          <img src="images/fhandle/fh (1).jpg" alt="Furniture Handle">
+          <img src="images/fhandle/fh (2).jpg" alt="Furniture Handle">
+          <img src="images/fhandle/fh (3).jpg" alt="Furniture Handle">
+        </div>
+        <div class="slider-dots" id="dots-fh"></div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Furniture Handle</div>
+          <div class="product-cat">Cabinet &amp; Drawer Hardware</div>
+        </div>
+        <a href="#order" class="btn-book-sm" onclick="prefillProduct('Furniture Handle')">Book Order</a>
+      </div>
+    </div>
+
+    <div class="product-card" data-product="Bathroom Accessories">
+      <div class="product-slider">
+        <div class="track" id="track-ba">
+          <img src="images/bathroom/bathroom (1).jpg" alt="Bathroom Accessories">
+          <img src="images/bathroom/bathroom (2).jpg" alt="Bathroom Accessories">
+          <img src="images/bathroom/bathroom (3).jpg" alt="Bathroom Accessories">
+        </div>
+        <div class="slider-dots" id="dots-ba"></div>
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Bathroom Accessories</div>
+          <div class="product-cat">Bath &amp; Sanitaryware</div>
+        </div>
+        <a href="#order" class="btn-book-sm" onclick="prefillProduct('Bathroom Accessories')">Book Order</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top: 40px;" class="reveal">
+    <a href="products.html" class="btn-outline">View All Products →</a>
+  </div>
+</section>
+
+<!-- ORDER SECTION -->
+<section class="section order-section" id="order">
+  <p class="section-label reveal">Book &amp; Pickup</p>
+  <h2 class="section-title reveal">Reserve your <em>order</em> online</h2>
+  <p class="section-sub reveal">Place your order in advance and collect it at the store at your convenience — no waiting required.</p>
+
+  <div class="price-banner reveal">
+    <div class="price-banner-icon">💡</div>
+    <div class="price-banner-text">
+      <strong>Pricing is done in-store only.</strong> Our team will provide you with the best quote when you visit. Booking online simply reserves your items for pickup.
+    </div>
+  </div>
+
+  <div class="order-steps reveal">
+    <div class="order-step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <div class="step-title">Fill the booking form</div>
+        <div class="step-desc">Enter your name, contact details, the product you need and any specific requirements.</div>
+      </div>
+    </div>
+    <div class="order-step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <div class="step-title">We confirm via WhatsApp</div>
+        <div class="step-desc">Our team will reach out to confirm availability and your preferred pickup time.</div>
+      </div>
+    </div>
+    <div class="order-step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <div class="step-title">Visit the store &amp; collect</div>
+        <div class="step-desc">Walk in, inspect the products and complete the purchase. Pricing is finalised in-store.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING FORM -->
+  <div class="order-form-wrap reveal">
+    <h3>Book Your Order</h3>
+    <p>Fill in the details below and we'll get back to you on WhatsApp.</p>
+
+    <form id="bookingForm">
+      <div class="form-row">
+        <label>Full Name *</label>
+        <input type="text" id="bName" placeholder="Your full name" required>
+      </div>
+      <div class="form-row">
+        <label>Phone Number *</label>
+        <input type="tel" id="bPhone" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+      <div class="form-row">
+        <label>Email Address</label>
+        <input type="email" id="bEmail" placeholder="your@email.com">
+      </div>
+      <div class="form-row">
+        <label>Product Category *</label>
+        <select id="bProduct" required>
+          <option value="" disabled selected>Select a product category</option>
+          <option>Kitchen Baskets</option>
+          <option>Profile Handle</option>
+          <option>Handle Lock</option>
+          <option>Knob Handle</option>
+          <option>Furniture Handle</option>
+          <option>Sofa Legs</option>
+          <option>Bathroom Accessories</option>
+          <option>Main Door Handle</option>
+          <option>Door Kit</option>
+          <option>Khiti</option>
+          <option>Other / Multiple</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Quantity / Details *</label>
+        <textarea id="bMessage" placeholder="e.g. 2 sets of stainless steel cabinet handles, approx 128mm pitch..." required></textarea>
+      </div>
+      <div class="form-note">
+        ℹ️ Pricing is discussed when you visit the store. This form only books a reservation for you.
+      </div>
+      <button type="submit" class="btn-submit">Send Booking via WhatsApp →</button>
     </form>
   </div>
 </section>
 
-<section class="about" id="about">
-<h2>About Asian Traders</h2>
-<p>Established in 1990, Asian Traders has been serving Bhavnagar with quality hardware products for over 30 years.</p>
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <p class="section-label reveal">Our Story</p>
+  <h2 class="section-title reveal">Three decades of <em>excellence</em></h2>
+
+  <div class="about-inner reveal">
+    <p>Established in <strong>1990</strong>, Asian Traders has been the cornerstone of hardware supply in Bhavnagar for over three decades. Founded with a vision to bring quality and reliability to every home and business, we have grown to become one of the most trusted names in the region.</p>
+    <p>Our store, nestled in the bustling <strong>Vora Bazar</strong>, carries an extensive range of products — from premium furniture handles and kitchen baskets to robust door hardware and bathroom accessories. Every item in our catalog is carefully selected to meet our standards of <strong>quality and durability</strong>.</p>
+    <p>At Asian Traders, we believe good hardware is the foundation of beautiful spaces. Our experienced team is always on hand to guide you to the right product for your project — whether it's a single cabinet renovation or an entire home fit-out.</p>
+  </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-container">
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <p class="section-label reveal">Find Us</p>
+  <h2 class="section-title reveal">Visit our <em>store</em></h2>
 
-    <div>
-      <h3>Asian Traders</h3>
-      <h4>Hardware Store in Bhavnagar, Gujarat”</h4>
-      <p>Trusted hardware solutions since 1990.<br>
-      Quality products and expert service for all your hardware needs.</p>
-      <h4 class="since">Since 1990</h4>
+  <div class="contact-grid reveal">
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-item-label">Address</div>
+        <div class="contact-item-val">Vora Bazar, Bhavnagar<br>Gujarat, India</div>
+      </div>
     </div>
-
-    <div>
-      <h4>Quick Links</h4>
-      <ul class=footer-link>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="index.html#about">About Us</a>
-        <a href="index.html#contact">Contact</a>
-      </ul>
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-item-label">Phone</div>
+        <div class="contact-item-val"><a href="tel:+919825572952">+91 98255 72952</a></div>
+      </div>
     </div>
-
-    <div>
-      <h4>Contact Info</h4>
-      <p>📍 Vora Bazar, Bhavnagar, Gujarat, India</p>
-      <p>📞 +91 98255 72952</p>
-      <p>✉ asiantraders.bvn@gmail.com</p>
+    <div class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-val"><a href="mailto:asiantraders.bvn@gmail.com">asiantraders.bvn@gmail.com</a></div>
+      </div>
     </div>
-
-    <div>
-      <h4>Business Hours</h4>
-      <p>Monday – Saturday</p>
-      <p>10:00 AM – 9:00 PM</p>
-      <p class="closed">Sunday: Closed</p>
+    <div class="contact-item">
+      <div class="contact-icon">🕐</div>
+      <div>
+        <div class="contact-item-label">Business Hours</div>
+        <div class="contact-item-val">
+          Monday – Saturday: 10:00 AM – 9:00 PM
+          <div class="hours-badge"><div class="hours-dot"></div> Open Today</div>
+        </div>
+      </div>
     </div>
-
   </div>
 
-  <div class="footer-bottom">
-    © 2026 Asian Traders. All rights reserved.
+  <!-- CONTACT ENQUIRY FORM -->
+  <div class="order-form-wrap reveal" style="margin-top:40px;">
+    <h3>Send an Enquiry</h3>
+    <p>Have a question? We'll reply on WhatsApp.</p>
+    <form id="contactForm">
+      <div class="form-row">
+        <label>Full Name *</label>
+        <input type="text" id="cName" placeholder="Your name" required>
+      </div>
+      <div class="form-row">
+        <label>Email Address</label>
+        <input type="email" id="cEmail" placeholder="your@email.com">
+      </div>
+      <div class="form-row">
+        <label>Phone Number *</label>
+        <input type="tel" id="cPhone" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+      <div class="form-row">
+        <label>Message *</label>
+        <textarea id="cMessage" placeholder="Your question or requirement..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Enquiry via WhatsApp →</button>
+    </form>
   </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-brand-name">Asian Traders</div>
+    <div class="footer-brand-desc">Trusted hardware solutions since 1990.<br>Quality products and expert service for every hardware need.</div>
+  </div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="products.html">Products</a>
+    <a href="#order">Book Order</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-bottom">© 2026 Asian Traders, Bhavnagar. All rights reserved.</div>
 </footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/917984777292" target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✅</span>
+  <span id="toastMsg">Booking sent! We'll confirm on WhatsApp.</span>
+</div>
 
 <script src="script.js"></script>
 </body>
