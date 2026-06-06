@@ -120,6 +120,17 @@ body::before {
   line-height: 1;
 }
 
+img{
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  /* background: var(--surface); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: var(--shadow-card), 0 0 0 1px var(--border); */
+  /* position: relative; */
+}
 .brand-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
