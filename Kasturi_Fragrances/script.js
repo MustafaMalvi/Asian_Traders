@@ -1,4 +1,4 @@
-const GOOGLE_REVIEW_URL="https://g.page/r/REPLACE_WITH_KASTURI_FRAGRANCES_PLACE_ID/review";
+const GOOGLE_REVIEW_URL="https://g.page/r/Ca2HFL1UovrSEBM/review";
 const STORAGE_KEY="kasturiUsedReviewIdsV1";
 
 const chips=document.querySelectorAll(".chip"),selected=new Set();
